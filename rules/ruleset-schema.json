@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RevitQualityChecker Rule Set",
+  "description": "Schema for defining BIM model quality check rules",
+  "type": "object",
+  "required": ["name", "rules"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the rule set"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the rule set"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the rule set"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/rule"
+      },
+      "minItems": 1
+    }
+  },
+  "definitions": {
+    "rule": {
+      "type": "object",
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z]{2,5}-\\d{3}$",
+          "description": "Unique rule identifier (e.g., NAM-001)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable rule name"
+        },
+        "description": {
+          "type": "string",
+          "description": "What this rule checks"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["naming", "required_parameter", "duplicate_name", "duplicate_parameter", "unplaced_room"],
+          "description": "Rule type determining evaluation logic"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["Info", "Warning", "Error"],
+          "default": "Warning",
+          "description": "Severity level of violations"
+        },
+        "targetCategory": {
+          "type": "string",
+          "description": "Revit category to filter elements (e.g., Walls, Doors). Empty means all elements."
+        },
+        "parameters": {
+          "type": "object",
+          "description": "Rule-type-specific parameters",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

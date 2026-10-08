@@ -1,0 +1,90 @@
+{
+  "name": "Default Quality Rules",
+  "version": "1.0.0",
+  "description": "Standard BIM model quality checks: naming, required parameters, and model health.",
+  "rules": [
+    {
+      "id": "NAM-001",
+      "name": "Wall Naming Convention",
+      "description": "Wall type names must not be default/unnamed (e.g., 'Wall 1', 'Generic'). Should describe material or function.",
+      "type": "naming",
+      "severity": "Warning",
+      "targetCategory": "Walls",
+      "parameters": {
+        "pattern": "^(?!.*(Generic|Wall \\d|Duvar \\d|^Wall$)).*$"
+      }
+    },
+    {
+      "id": "NAM-002",
+      "name": "Level Naming Convention",
+      "description": "Level names must not be Revit defaults like 'Level 1'. Should have a meaningful name (L1, Ground Floor, etc.)",
+      "type": "naming",
+      "severity": "Warning",
+      "targetCategory": "Levels",
+      "parameters": {
+        "pattern": "^(?!Level \\d).*$"
+      }
+    },
+    {
+      "id": "NAM-003",
+      "name": "View Naming Convention",
+      "description": "View names must not contain default suffixes like 'Copy', 'Kopya', or auto-numbered sections",
+      "type": "naming",
+      "severity": "Warning",
+      "targetCategory": "Views",
+      "parameters": {
+        "pattern": "^(?!.*(Copy|Kopya|Section \\d)).*$"
+      }
+    },
+    {
+      "id": "PAR-001",
+      "name": "Fire Rating Required",
+      "description": "All walls should have a Fire Rating parameter filled in for code compliance",
+      "type": "required_parameter",
+      "severity": "Warning",
+      "targetCategory": "Walls",
+      "parameters": {
+        "parameterName": "Fire Rating"
+      }
+    },
+    {
+      "id": "PAR-002",
+      "name": "Mark Required for Doors",
+      "description": "All doors must have a Mark parameter",
+      "type": "required_parameter",
+      "severity": "Warning",
+      "targetCategory": "Doors",
+      "parameters": {
+        "parameterName": "Mark"
+      }
+    },
+    {
+      "id": "PAR-003",
+      "name": "Room Number Required",
+      "description": "All rooms must have a Number parameter filled in",
+      "type": "required_parameter",
+      "severity": "Error",
+      "targetCategory": "Rooms",
+      "parameters": {
+        "parameterName": "Number"
+      }
+    },
+    {
+      "id": "HLT-001",
+      "name": "Duplicate View Names",
+      "description": "Detects views with identical names (indicates unorganized views)",
+      "type": "duplicate_name",
+      "severity": "Warning",
+      "targetCategory": "Views",
+      "parameters": {}
+    },
+    {
+      "id": "HLT-002",
+      "name": "Unplaced Rooms",
+      "description": "Detects rooms with zero area (unplaced or with open boundaries)",
+      "type": "unplaced_room",
+      "severity": "Error",
+      "parameters": {}
+    }
+  ]
+}

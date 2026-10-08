@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>RevitQualityChecker</Name>
+    <Assembly>RevitQualityChecker\RevitQualityChecker.RevitAdapter.dll</Assembly>
+    <FullClassName>RevitQualityChecker.RevitAdapter.QualityCheckerApp</FullClassName>
+    <ClientId>7B3A8F2E-1D4C-4E5F-9A6B-0C8D7E2F3A1B</ClientId>
+    <VendorId>com.kaanbeyazkilic</VendorId>
+    <VendorDescription>Kaan Beyazkilic</VendorDescription>
+  </AddIn>
+</RevitAddIns>

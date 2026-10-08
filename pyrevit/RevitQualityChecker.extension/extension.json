@@ -1,0 +1,11 @@
+{
+  "type": "extension",
+  "name": "RevitQualityChecker",
+  "description": "BIM Model Quality Checker - validates models against configurable rules",
+  "author": "Kaan Beyazkilic",
+  "author-url": "",
+  "url": "",
+  "website": "",
+  "image": "",
+  "dependencies": []
+}

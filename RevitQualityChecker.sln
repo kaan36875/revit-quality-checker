@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F986F5AC-B4C3-40F7-AA05-B3BE760D812E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitQualityChecker.Core", "src\Core\RevitQualityChecker.Core.csproj", "{E522265A-CB2D-4116-8FE2-A710E88377EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitQualityChecker.Reporting", "src\Reporting\RevitQualityChecker.Reporting.csproj", "{14E3A197-EA96-4C76-9BC6-5E269ED5C2E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{84595889-EBA3-4947-9A5F-C92907A552A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitQualityChecker.Core.Tests", "tests\Core.Tests\RevitQualityChecker.Core.Tests.csproj", "{5CFC7BE3-F1B9-4BF3-89FD-22E6E665D702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitQualityChecker.RevitAdapter", "src\RevitAdapter\RevitQualityChecker.RevitAdapter.csproj", "{8DFB41C8-A4A3-4866-A768-F1F7FD8713F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E522265A-CB2D-4116-8FE2-A710E88377EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E522265A-CB2D-4116-8FE2-A710E88377EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E522265A-CB2D-4116-8FE2-A710E88377EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E522265A-CB2D-4116-8FE2-A710E88377EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E3A197-EA96-4C76-9BC6-5E269ED5C2E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E3A197-EA96-4C76-9BC6-5E269ED5C2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E3A197-EA96-4C76-9BC6-5E269ED5C2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E3A197-EA96-4C76-9BC6-5E269ED5C2E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CFC7BE3-F1B9-4BF3-89FD-22E6E665D702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CFC7BE3-F1B9-4BF3-89FD-22E6E665D702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CFC7BE3-F1B9-4BF3-89FD-22E6E665D702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CFC7BE3-F1B9-4BF3-89FD-22E6E665D702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DFB41C8-A4A3-4866-A768-F1F7FD8713F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DFB41C8-A4A3-4866-A768-F1F7FD8713F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DFB41C8-A4A3-4866-A768-F1F7FD8713F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DFB41C8-A4A3-4866-A768-F1F7FD8713F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E522265A-CB2D-4116-8FE2-A710E88377EE} = {F986F5AC-B4C3-40F7-AA05-B3BE760D812E}
+		{14E3A197-EA96-4C76-9BC6-5E269ED5C2E7} = {F986F5AC-B4C3-40F7-AA05-B3BE760D812E}
+		{5CFC7BE3-F1B9-4BF3-89FD-22E6E665D702} = {84595889-EBA3-4947-9A5F-C92907A552A2}
+		{8DFB41C8-A4A3-4866-A768-F1F7FD8713F9} = {F986F5AC-B4C3-40F7-AA05-B3BE760D812E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,183 @@
+{
+  "name": "Default Quality Rules",
+  "version": "1.1.0",
+  "description": "Standard BIM model quality checks for naming, parameters, and model health.",
+  "rules": [
+    {
+      "id": "NAM-001",
+      "name": "Wall Naming Convention",
+      "description": "Wall type names must not be default/unnamed (e.g., 'Wall 1', 'Generic'). Should describe material or function.",
+      "type": "naming",
+      "severity": "Warning",
+      "targetCategory": "Walls",
+      "parameters": {
+        "pattern": "^(?!.*(Generic|Wall \\d|Duvar \\d|^Wall$)).*$",
+        "violationMessage": "'{0}' is a default wall name — rename to describe material or function",
+        "suggestedFix": "Use a descriptive name (e.g. 'Concrete 200mm', 'Brick Cavity')"
+      }
+    },
+    {
+      "id": "NAM-002",
+      "name": "Level Naming Convention",
+      "description": "Level names must not be Revit defaults like 'Level 1'. Should have a meaningful name.",
+      "type": "naming",
+      "severity": "Warning",
+      "targetCategory": "Levels",
+      "parameters": {
+        "pattern": "^(?!Level \\d).*$",
+        "violationMessage": "'{0}' is a default Revit level name",
+        "suggestedFix": "Rename to something meaningful (e.g. 'Ground Floor', '1st Floor')"
+      }
+    },
+    {
+      "id": "NAM-003",
+      "name": "View Naming Convention",
+      "description": "View names must not contain default suffixes like 'Copy', 'Kopya', or auto-numbered sections.",
+      "type": "naming",
+      "severity": "Warning",
+      "targetCategory": "Views",
+      "parameters": {
+        "pattern": "^(?!.*(Copy|Kopya|Section \\d)).*$",
+        "violationMessage": "'{0}' contains a default or copy suffix",
+        "suggestedFix": "Rename with a descriptive view name (e.g. 'A101 - Ground Floor Plan')"
+      }
+    },
+    {
+      "id": "NAM-004",
+      "name": "Room Naming Convention",
+      "description": "Room names must not be Revit defaults like 'Room' or empty.",
+      "type": "naming",
+      "severity": "Warning",
+      "targetCategory": "Rooms",
+      "parameters": {
+        "pattern": "^(?!^Room$|^Oda$|^$).*$",
+        "violationMessage": "'{0}' is a default room name",
+        "suggestedFix": "Assign a proper room name (e.g. 'Kitchen', 'Office 101')"
+      }
+    },
+    {
+      "id": "NAM-005",
+      "name": "Door Naming Convention",
+      "description": "Door type names must not be generic defaults.",
+      "type": "naming",
+      "severity": "Info",
+      "targetCategory": "Doors",
+      "parameters": {
+        "pattern": "^(?!.*(Generic|Door \\d|Kapı \\d)).*$",
+        "violationMessage": "'{0}' is a default door type name",
+        "suggestedFix": "Rename to describe the door (e.g. 'Single Flush 900x2100')"
+      }
+    },
+    {
+      "id": "PAR-001",
+      "name": "Fire Rating Required",
+      "description": "All walls should have a Fire Rating parameter filled in for code compliance.",
+      "type": "required_parameter",
+      "severity": "Warning",
+      "targetCategory": "Walls",
+      "parameters": {
+        "parameterName": "Fire Rating"
+      }
+    },
+    {
+      "id": "PAR-002",
+      "name": "Mark Required for Doors",
+      "description": "All doors must have a Mark parameter for scheduling.",
+      "type": "required_parameter",
+      "severity": "Warning",
+      "targetCategory": "Doors",
+      "parameters": {
+        "parameterName": "Mark"
+      }
+    },
+    {
+      "id": "PAR-003",
+      "name": "Room Number Required",
+      "description": "All rooms must have a Number parameter for area schedules.",
+      "type": "required_parameter",
+      "severity": "Error",
+      "targetCategory": "Rooms",
+      "parameters": {
+        "parameterName": "Number"
+      }
+    },
+    {
+      "id": "PAR-004",
+      "name": "Window Mark Required",
+      "description": "All windows must have a Mark parameter for scheduling.",
+      "type": "required_parameter",
+      "severity": "Warning",
+      "targetCategory": "Windows",
+      "parameters": {
+        "parameterName": "Mark"
+      }
+    },
+    {
+      "id": "HLT-001",
+      "name": "Duplicate View Names",
+      "description": "Detects views with identical names (indicates unorganized views).",
+      "type": "duplicate_name",
+      "severity": "Warning",
+      "targetCategory": "Views",
+      "parameters": {}
+    },
+    {
+      "id": "HLT-002",
+      "name": "Unplaced Rooms",
+      "description": "Detects rooms with zero area (unplaced or with open boundaries).",
+      "type": "unplaced_room",
+      "severity": "Error",
+      "parameters": {}
+    },
+    {
+      "id": "HLT-003",
+      "name": "Duplicate Room Numbers",
+      "description": "Detects rooms sharing the same Number value.",
+      "type": "duplicate_parameter",
+      "severity": "Error",
+      "targetCategory": "Rooms",
+      "parameters": {
+        "parameterName": "Number"
+      }
+    },
+    {
+      "id": "HLT-004",
+      "name": "Missing Room Tags",
+      "description": "Detects rooms that have no tag placed in any view.",
+      "type": "required_parameter",
+      "severity": "Warning",
+      "targetCategory": "Rooms",
+      "parameters": {
+        "parameterName": "_HasTag",
+        "violationMessage": "Room has no tag placed in any view",
+        "suggestedFix": "Place a room tag in a floor plan view"
+      }
+    },
+    {
+      "id": "HLT-005",
+      "name": "Missing Door Tags",
+      "description": "Detects doors that have no tag placed in any view.",
+      "type": "required_parameter",
+      "severity": "Warning",
+      "targetCategory": "Doors",
+      "parameters": {
+        "parameterName": "_HasTag",
+        "violationMessage": "Door has no tag placed in any view",
+        "suggestedFix": "Place a door tag in a floor plan view"
+      }
+    },
+    {
+      "id": "HLT-006",
+      "name": "Unjoined Walls",
+      "description": "Detects walls with disallowed joins at one or both ends.",
+      "type": "required_parameter",
+      "severity": "Warning",
+      "targetCategory": "Walls",
+      "parameters": {
+        "parameterName": "_WallJoinStatus",
+        "violationMessage": "Wall join is disallowed at one or both ends",
+        "suggestedFix": "Right-click wall end and select 'Allow Join'"
+      }
+    }
+  ]
+}
