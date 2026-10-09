@@ -15,7 +15,7 @@ namespace RevitQualityChecker.RevitAdapter
 
             var assemblyPath = Assembly.GetExecutingAssembly().Location;
 
-            var helpUrl = new ContextualHelp(ContextualHelpType.Url, "https://kaanbeyazkilic.com");
+            var helpUrl = new ContextualHelp(ContextualHelpType.Url, "https://github.com/kaan36875/revit-quality-checker");
 
             var checkButton = new PushButtonData(
                 "CheckModel",
