@@ -4,7 +4,7 @@ Automated BIM model quality checker plugin for Autodesk Revit. Validates models 
 
 Available on the [Autodesk App Store](#) | [Privacy Policy](PRIVACY.md)
 
-![Results Window](installer/revitcheck.png)
+![Results Window](installer/revit-checkresult.png)
 
 ## Features
 
@@ -19,9 +19,9 @@ Available on the [Autodesk App Store](#) | [Privacy Policy](PRIVACY.md)
 
 ## Screenshots
 
-| Results | Settings | About |
-|---------|----------|-------|
-| ![Results](installer/revitcheck.png) | ![Settings](installer/revitsettings.png) | ![About](installer/revitabout.png) |
+| Ribbon | Results | Settings | About |
+|--------|---------|----------|-------|
+| ![Ribbon](installer/revit-ribbon.png) | ![Results](installer/revit-checkresult.png) | ![Settings](installer/revit-settings.png) | ![About](installer/revit-about.png) |
 
 ## Quality Rules
 
