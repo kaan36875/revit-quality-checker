@@ -58,14 +58,17 @@ namespace RevitQualityChecker.RevitAdapter.ViewModels
         {
             try
             {
-                var exporter = new BcfExporter();
-                var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                var safeName = string.Join("_", ModelName.Split(Path.GetInvalidFileNameChars()));
-                var path = Path.Combine(desktop, $"QualityReport_{safeName}_{timestamp}.bcf");
-                exporter.Export(_report, path);
+                var dlg = new Microsoft.Win32.SaveFileDialog
+                {
+                    FileName = $"QualityReport_{SafeModelName()}_{FileTimestamp()}",
+                    DefaultExt = ".bcf",
+                    Filter = "BCF files (*.bcf)|*.bcf",
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                };
+                if (dlg.ShowDialog() != true) return;
 
-                System.Windows.MessageBox.Show($"BCF exported to:\n{path}", "Export Complete",
+                new BcfExporter().Export(_report, dlg.FileName);
+                System.Windows.MessageBox.Show($"BCF exported to:\n{dlg.FileName}", "Export Complete",
                     System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
             }
             catch (Exception ex)
@@ -78,18 +81,21 @@ namespace RevitQualityChecker.RevitAdapter.ViewModels
         {
             try
             {
-                var gen = new HtmlReportGenerator();
-                var html = gen.Generate(_report);
+                var dlg = new Microsoft.Win32.SaveFileDialog
+                {
+                    FileName = $"QualityReport_{SafeModelName()}_{FileTimestamp()}",
+                    DefaultExt = ".html",
+                    Filter = "HTML files (*.html)|*.html",
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                };
+                if (dlg.ShowDialog() != true) return;
 
-                var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-                var safeName = string.Join("_", ModelName.Split(Path.GetInvalidFileNameChars()));
-                var path = Path.Combine(desktop, $"QualityReport_{safeName}_{timestamp}.html");
-                File.WriteAllText(path, html);
+                var html = new HtmlReportGenerator().Generate(_report);
+                File.WriteAllText(dlg.FileName, html);
 
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 {
-                    FileName = path,
+                    FileName = dlg.FileName,
                     UseShellExecute = true
                 });
             }
@@ -98,5 +104,8 @@ namespace RevitQualityChecker.RevitAdapter.ViewModels
                 System.Windows.MessageBox.Show($"Export failed: {ex.Message}", "Error");
             }
         }
+
+        private string SafeModelName() => string.Join("_", ModelName.Split(Path.GetInvalidFileNameChars()));
+        private static string FileTimestamp() => DateTime.Now.ToString("yyyyMMdd_HHmmss");
     }
 }

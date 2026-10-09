@@ -14,7 +14,7 @@ Since no data is collected, no data is shared with any third parties, analytics 
 
 The only data stored locally is your plugin settings (enabled/disabled rules and custom rules file path), saved at `%AppData%\RevitQualityChecker\settings.json`. This file is created only when you save settings and can be deleted at any time by removing that folder. No other data is retained.
 
-Your Revit model data is processed in-memory during a quality check and is never written to disk or transmitted anywhere.
+Your Revit model data is processed in-memory during a quality check and is never transmitted anywhere. When you explicitly export a report (HTML or BCF), element IDs, names, and violation details are written to a local file at a location you choose. No data is written to disk without your action.
 
 ## Revoking Consent and Data Deletion
 

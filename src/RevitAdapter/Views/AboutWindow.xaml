@@ -31,7 +31,7 @@
         <StackPanel Grid.Row="2" Margin="0,12,0,0">
             <TextBlock TextWrapping="Wrap" FontSize="12" Foreground="#CCC" LineHeight="20">
                 BIM model quality checker with configurable rules, auto-fix,
-                HTML/BCF reporting, and multi-version Revit support.
+                and HTML/BCF reporting for Autodesk Revit.
             </TextBlock>
 
             <Grid Margin="0,16,0,0">
@@ -40,6 +40,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -53,10 +54,18 @@
                 <TextBlock Grid.Row="1" Grid.Column="1" Text="MIT" FontSize="11" Foreground="#E0E0E0"/>
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Revit:" Foreground="#888" FontSize="11" Margin="0,0,12,6"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="2022 — 2028" FontSize="11" Foreground="#E0E0E0"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="2027" FontSize="11" Foreground="#E0E0E0"/>
 
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Website:" Foreground="#888" FontSize="11" Margin="0,0,12,6"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Privacy:" Foreground="#888" FontSize="11" Margin="0,0,12,6"/>
                 <TextBlock Grid.Row="3" Grid.Column="1" FontSize="11">
+                    <Hyperlink NavigateUri="https://github.com/kaan36875/revit-quality-checker/blob/main/PRIVACY.md" RequestNavigate="Hyperlink_RequestNavigate"
+                               Foreground="#007ACC">
+                        <Run Text="Privacy Policy"/>
+                    </Hyperlink>
+                </TextBlock>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Website:" Foreground="#888" FontSize="11" Margin="0,0,12,6"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" FontSize="11">
                     <Hyperlink NavigateUri="https://kaanbeyazkilic.com" RequestNavigate="Hyperlink_RequestNavigate"
                                Foreground="#007ACC">
                         <Run Text="kaanbeyazkilic.com"/>

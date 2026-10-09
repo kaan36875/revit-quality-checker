@@ -7,17 +7,17 @@
   Description="BIM model quality checker with configurable rules, scoring, and HTML reports."
   Author="Kaan Beyazkilic"
   AutodeskProduct="Revit"
-  HelpFile="./Contents/help.html">
+>
 
   <CompanyDetails
     Name="Kaan Beyazkilic"
     Email="kaanbeyazkilic@gmail.com"
-    Url="https://github.com/kaanbeyazkilic" />
+    Url="https://github.com/kaan36875/revit-quality-checker" />
 
-  <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2022" SeriesMax="R2028" />
+  <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2027" SeriesMax="R2027" />
 
-  <Components Description="Main Module">
-    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2022" SeriesMax="R2028" />
+  <Components Description="Revit 2027">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2027" SeriesMax="R2027" />
     <ComponentEntry AppName="RevitQualityChecker"
                     Version="1.0.0"
                     ModuleName="./Contents/RevitQualityChecker.addin"

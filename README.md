@@ -14,7 +14,7 @@ Available on the [Autodesk App Store](#) | [Privacy Policy](PRIVACY.md)
 - **HTML Report** — styled report with charts and violation tables, ready to share with your team
 - **BCF Export** — BCF 2.1 format for import into Navisworks, Solibri, BIMcollab, and other coordination tools
 - **Configurable Rules** — enable/disable rules or load custom JSON rule files for company standards
-- **Multi-Version Support** — Revit 2022, 2023, 2024, 2025, 2026, 2027, 2028
+- **Revit 2027 Support** — built for the latest Revit platform
 - **Dark Theme UI** — matches Revit's interface
 
 ## Screenshots
@@ -25,23 +25,23 @@ Available on the [Autodesk App Store](#) | [Privacy Policy](PRIVACY.md)
 
 ## Quality Rules
 
-| Category | Rule | Severity |
-|----------|------|----------|
-| Naming | View names follow standard | Warning |
-| Naming | Sheet names follow standard | Warning |
-| Naming | Level names follow standard | Warning |
-| Naming | Grid names follow standard | Warning |
-| Parameters | Walls have required parameters | Error |
-| Parameters | Doors have required parameters | Error |
-| Parameters | Windows have required parameters | Error |
-| Health | Model warnings below threshold | Warning |
-| Health | Walls are properly joined | Error |
-| Health | Rooms are placed and enclosed | Error |
-| Health | No duplicate sheet numbers | Error |
-| Health | Room tags are placed | Warning |
-| Documentation | Sheets have title blocks | Error |
-| Documentation | Views on sheets | Info |
-| Naming | No duplicate view names | Warning |
+| ID | Category | Rule | Severity |
+|----|----------|------|----------|
+| NAM-001 | Naming | Wall names are not defaults | Warning |
+| NAM-002 | Naming | Level names are not defaults | Warning |
+| NAM-003 | Naming | View names have no copy/default suffixes | Warning |
+| NAM-004 | Naming | Room names are not defaults | Warning |
+| NAM-005 | Naming | Door type names are not generic | Info |
+| PAR-001 | Parameters | Walls have Fire Rating | Warning |
+| PAR-002 | Parameters | Doors have Mark | Warning |
+| PAR-003 | Parameters | Rooms have Number | Error |
+| PAR-004 | Parameters | Windows have Mark | Warning |
+| HLT-001 | Health | No duplicate view names | Warning |
+| HLT-002 | Health | No unplaced/open-boundary rooms | Error |
+| HLT-003 | Health | No duplicate room numbers | Error |
+| HLT-004 | Health | Room tags are placed | Warning |
+| HLT-005 | Health | Door tags are placed | Warning |
+| HLT-006 | Health | Walls are properly joined | Warning |
 
 ## Installation
 
@@ -71,7 +71,7 @@ Download from the [Autodesk App Store](#) and follow the installer instructions.
 
 - Visual Studio 2022+ or `dotnet` CLI
 - .NET 10 SDK
-- Revit 2022+ installed (for Revit API references)
+- Revit 2027 installed (for Revit API references)
 
 ### Build
 
