@@ -8,7 +8,7 @@ Available on the [Autodesk App Store](#) | [Privacy Policy](PRIVACY.md)
 
 ## Features
 
-- **15 Built-in Rules** across four categories: Naming Conventions, Required Parameters, Model Health, and Documentation
+- **15 Built-in Rules** across three categories: Naming Conventions, Required Parameters, and Model Health
 - **Quality Score** — 0-100 score per rule and overall, so you can track model quality over time
 - **Auto-Fix** — one-click fixes for supported issues (e.g. unjoined walls)
 - **HTML Report** — styled report with charts and violation tables, ready to share with your team

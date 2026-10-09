@@ -1,6 +1,6 @@
 # Privacy Policy — Revit Quality Checker
 
-**Last updated:** October 8, 2026
+**Last updated:** October 9, 2026
 
 ## Data Collection
 
